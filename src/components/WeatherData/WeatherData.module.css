@@ -1,0 +1,15 @@
+.weather p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.weather__list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.weather__list__title {
+  font-size: 60px;
+  margin-bottom: 2rem;
+}

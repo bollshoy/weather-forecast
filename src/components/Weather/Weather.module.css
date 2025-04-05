@@ -63,17 +63,7 @@
     flex-direction: column;
   }
 }
-.weather__list__title {
-  font-size: 60px;
-  margin-bottom: 1rem;
-}
 .weather__list .weather__list__temp {
   font-size: clamp(52px, 5vw, 102px);
   line-height: normal;
-}
-.weather__list p {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
 }
