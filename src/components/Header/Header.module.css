@@ -1,0 +1,56 @@
+.header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  max-width: 80px;
+}
+@media screen and (max-width: 480px) {
+  .header__logo {
+    display: none;
+  }
+}
+.header__logo img {
+  width: 100%;
+}
+
+.weather__input__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.weather__btn {
+  background: none;
+}
+.weather__btn__icon {
+  max-width: 100%;
+}
+.weather__btn__icon img {
+  width: 100%;
+}
+.weather__input {
+  padding: 1rem 2rem;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--color-light);
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.weather__input::placeholder {
+  color: var(--color-light);
+}
+@media screen and (max-width: 480px) {
+  .weather__input {
+    padding: 1rem;
+    width: 80%;
+  }
+}

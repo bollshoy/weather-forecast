@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:before, :after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2");
+}
+:root {
+  --containerWidth: 1420px;
+  --containerPadding: 20px;
+  --color-light: #ffffff;
+  --color-dark: #000000;
+  --first-color: var(--color-light), .7;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--color-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: clamp(42px, 5vw, 86px);
+}
+
+a, p {
+  font-size: clamp(16px, 1vw, 24px);
+}
+
+span {
+  font-size: clamp(18px, 2vw, 32px);
+}
+
+.container {
+  max-width: var(--containerWidth);
+  padding: 0 var(--containerPadding);
+  align-items: center;
+  margin: 0 auto;
+}

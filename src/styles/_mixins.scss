@@ -1,0 +1,6 @@
+@mixin container {
+  max-width: var(--containerWidth);
+  padding: 0 var(--containerPadding);
+  align-items: center;
+  margin: 0 auto;
+}
