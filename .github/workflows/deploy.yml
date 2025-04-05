@@ -16,15 +16,40 @@ jobs:
       
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Clean up
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm cache clean --force
+      
+      - name: Update npm
+        run: npm install -g npm
       
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install --no-optional
+      
+      - name: Install Rollup
+        run: npm install rollup --save-dev
+      
+      - name: Check Node.js and npm versions
+        run: |
+          node -v
+          npm -v
+          npm list --depth=0
       
       - name: Build project
-        run: npm run build
+        run: npm run build || (echo "Build failed" && exit 1)
+        env:
+          VITE_WEATHER_API: ${{ secrets.VITE_WEATHER_API }}
+      
+      - name: List files in dist
+        run: ls -la ./dist
       
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Обновленная версия
         with:
           name: production-files
           path: ./dist
@@ -37,7 +62,7 @@ jobs:
     
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4  # Обновленная версия
         with:
           name: production-files
           path: ./dist
