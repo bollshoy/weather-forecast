@@ -3,7 +3,7 @@ import styles from './WeatherData.module.scss';
 
 const WeatherData = ({data}) => {
   return (
-    <div className="weather__list">
+    <div className={`${styles.weather__list}`}>
       <h2 className={`${styles.weather__list__title}`}>{data.name}, {data.sys.country}</h2>
       <p className={`${styles.weather__list__item}`}>
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"

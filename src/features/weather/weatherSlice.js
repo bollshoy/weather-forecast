@@ -6,9 +6,10 @@ const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 export const fetchWeather = createAsyncThunk(
   'weather/fetchWeather',
-  async (city, { rejectWithValue }) => {
+  async (city, { rejectWithValue, getState }) => {
     try {
-      const response = await axios.get(`${BASE_URL}?q=${city}&appid=${API_KEY}&units=metric`);
+      const unit = getState().weather.unit;
+      const response = await axios.get(`${BASE_URL}?q=${city}&appid=${API_KEY}&units=${unit}`);
       const data = response.data;
       return data;
     } catch (error) {
@@ -25,11 +26,19 @@ const weatherSlice = createSlice({
     error: null,
     data: null,
     status: 'idle',
+    unit: 'metric',
   },
   reducers: {
     setCity: (state, action) => {
       state.city = action.payload;
+      state.data = null;
+      state.error = null;
+      state.status = 'idle';
     },
+    
+    setUnit: (state, action) => {
+      state.unit = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -43,10 +52,10 @@ const weatherSlice = createSlice({
       })
       .addCase(fetchWeather.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload?.message || 'query error';
+        state.error = action.payload || 'Query error';
       });
   },
 });
 
-export const { setCity } = weatherSlice.actions;
+export const { setCity, setUnit } = weatherSlice.actions;
 export default weatherSlice.reducer;

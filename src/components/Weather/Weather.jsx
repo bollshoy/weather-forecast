@@ -17,7 +17,7 @@ const Weather = () => {
         </h1>
         <div className={`${styles.weather__content}`}>
           {error && <p>{error}</p>}
-          {data && status === 'success' && (
+          {status === 'success' && data?.main && (
             <div className={`${styles.weather__list}`}>
               <p className={`${styles.weather__list__temp}`}>{Math.trunc(data.main.temp)}°</p>
               <WeatherData data={data} />

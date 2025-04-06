@@ -83,7 +83,8 @@ h1, h2, h3, h4, h5, h6 {
   --containerPadding: 20px;
   --color-light: #ffffff;
   --color-dark: #000000;
-  --first-color: var(--color-light), .7;
+  --border-radius: 20px;
+  --transition: .3s ;
 }
 
 *, *:after, *:before {
