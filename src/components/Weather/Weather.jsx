@@ -5,9 +5,7 @@ import styles from './Weather.module.scss';
 
 const Weather = () => {
   const dispatch = useDispatch();
-  const { error, data, status } = useSelector((state) => state.weather);
-  
-  console.log("hello");
+  const { error, data, status, unit } = useSelector((state) => state.weather);
   return (
     <section className={`${styles.weather}`}>
       <div className={`${styles.weather__container} container`}>
@@ -19,7 +17,9 @@ const Weather = () => {
           {error && <p>{error}</p>}
           {status === 'success' && data?.main && (
             <div className={`${styles.weather__list}`}>
-              <p className={`${styles.weather__list__temp}`}>{Math.trunc(data.main.temp)}°</p>
+              <p className={styles.weather__list__temp}>
+                {`${Math.trunc(data.main.temp)}°${unit === 'metric' ? 'C' : 'F'}`}
+              </p>
               <WeatherData data={data} />
             </div>
           )}
